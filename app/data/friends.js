@@ -1,13 +1,94 @@
 var friendsArray = [
 
     {
-        name: "Leiluu",
-        photo: 
+        firstName: "Leeloo",
+        lastName: "Perfect",
+        photo: "http://musingsfromus.com/wp-content/uploads/2011/12/The-Fifth-Element-1997-ScreenShot-56.jpg",
         scores: [
-
-        ]
-    }
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+        ],
+    },
+    {
+        firstName: "Don Juan",
+        lastName: "Demarko",
+        photo: "http://www.deppimpact.com/gallery/albums/pub_djd/djdcape.jpg",
+        scores: [
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5,
+            5
+        ],
+    },
 
 ];
+
+/*Declare an empty array for the absolute difference between the new friend that has just been added
+and each stored friend's scores question by question.*/
+var mainComparison = [];
+
+//Declare an empty array for the sum of each set of absolute differences for each friend to friend comparision.
+var finalComparison = [];
+
+//Create a function where the absolute differences are calculated and pushed to the mainComparision array.
+function compareFriends() {
+
+    for (i = 0; i < friendsArray.length; i++) {
+
+    for (i = 0; i < scores.length; i++) {
+            var difference = friendsArray.newFriend.scores[i] - friendsArray[i].scores[i];
+            var absoluteDifference = Math.abs(difference);
+            mainComparison.push(absoluteDifference);
+        }
+        };
+    };
+compareFriends();
+
+//Slice the main comparison array to isolate each individual friend's differences
+function chunkArray(mainComparision, chunk_size){
+    var index = 0;
+    var arrayLength = mainComparision.length;
+    var tempArray = [];
+    
+    for (index = 0; index < arrayLength; index += chunk_size) {
+        myChunk = myArray.slice(index, index+chunk_size);
+        // Do something if you want with the group
+        tempArray.push(myChunk);
+    }
+
+    return tempArray;
+
+}
+// Split in groups of 10 items
+var result = chunkArray(mainComparison, 10);
+// Outputs
+console.log(result);
+
+    const arrSum = result => result.reduce((a,b) => a + b, 0)
+    finalComparison.push(arrSum);
+
+//return the index of the minimum value for the finalComparison
+let i = finalComparison.indexOf(Math.min(...finalComparison));
+
+//declare the variable for the perfect Match friend at the index defined above.
+    var perfectMatch = friendsArray[i];
+
+    return(perfectMatch);
+
+    console.log(perfectMatch);
 
 module.exports = friendsArray;
