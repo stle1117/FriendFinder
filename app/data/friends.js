@@ -70,13 +70,13 @@ compareFriends();
 function compareFriends() {
 
     var i;
-    for (i = 0; i<friendsArray.length; i++) {
+    for (i = 0; i<friendsArray[i].length; i++) {
 
-        for (i = 0; i<friendsArray.scores.length; i++) {
+        for (i = 0; i<friendsArray[i].results.length; i++) {
 
             stringToNum();
 
-            var friendScores = (friendsArray[i].scores[9]);
+            var friendScores = (friendsArray[i].results);
             
             var difference = (friendsArray[friendsArray.length-1].newFriendScores) - friendScores;
             var absoluteDifference = Math.abs(difference);
@@ -90,6 +90,7 @@ function stringToNum() {
     var i;
     for (i = 0; i < 9; i++) {
         var newFriendScores = parseInt("newFriend.scores[i]");
+        return newFriendScores;
         };
     };
 
@@ -101,7 +102,7 @@ function chunkArray(mainComparision, chunk_size) {
     var tempArray = [];
 
     for (index = 0; index < arrayLength; index += chunk_size) {
-        myChunk = myArray.slice(index, index + chunk_size);
+        myChunk = mainComparision.slice(index, index + chunk_size);
         // Do something if you want with the group
         tempArray.push(myChunk);
     }
@@ -118,17 +119,15 @@ const arrSum = result => result.reduce((a, b) => a + b, 0)
 finalComparison.push(arrSum);
 
 //return the index of the minimum value for the finalComparison
-let n = finalComparison.indexOf(Math.min(...finalComparison));
+let x = finalComparison.indexOf(Math.min(...finalComparison));
 
-var i = n;
+var i = x;
 //declare the variable for the perfect Match friend at the index defined above.
 var perfectMatch = friendsArray[i];
 
 //return (perfectMatch);
 
-
 console.log(perfectMatch);
-
 
 };
 
